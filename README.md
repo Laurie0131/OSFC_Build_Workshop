@@ -27,10 +27,20 @@
   OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+  To see the Slides goto https://gitpitch.com/Laurie0131/OSFC_Build_Workshop/master#/
+
 -->
 
 
 # OSFC_Build_Workshop
 OSFC Workshop building OVMF with Linux
 
-To see the Slides goto https://gitpitch.com/Laurie0131/OSFC_Build_Workshop/master#/
+ Building Open Source Unified Extensible Firmware Interface (UEFI) Firmware with EFI Development Kit II (EDK II)
+   https://github.com/Laurie0131/OSFC_Build_Workshop/blob/master/OSFC_Build_Workshop_Slides.md 
+   
+# OSFC_DEBUG_Workshop
+  Debugging Unified Extensible Firmware Interface (UEFI) Firmware under Linux*
+  
+   
+ 
+
