@@ -40,6 +40,7 @@ OSFC Workshop building OVMF with Linux
    
 # OSFC_DEBUG_Workshop
   Debugging Unified Extensible Firmware Interface (UEFI) Firmware under Linux*
+   https://github.com/Laurie0131/OSFC_Build_Workshop/blob/master/OSFC_Debug_Workshop_Slides.md
   
    
  
