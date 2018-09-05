@@ -1106,22 +1106,22 @@ Intel, the Intel logo are trademarks of Intel Corporation or its subsidiaries in
 
 # Slide 102
 ## Restarting Docker
-Close all docker sessions and open native console/terminal session 
-
-$> docker ps –a
-$> docker rm –f edk2
-$> xhost local:root
-
-Re-load Docker image
-
-$> docker load –i edk2-ubuntu.dockerimage
-$> cd ~/workspace
-$> . ~/docker/edk-2-ubuntu.sh
-
-Re-do Pipe and UDK Debugger config
-
+- Close all docker sessions and open native console/terminal session 
+```
+ bash$ docker ps –a
+ bash$ docker rm –f edk2
+ bash$ xhost local:root
+```
+- Re-load Docker image
+```
+ bash$ docker load –i edk2-ubuntu.dockerimage
+ bash$ cd ~/workspace
+ bash$ . ~/docker/edk-2-ubuntu.sh
+```
+- Re-do Pipe and UDK Debugger config
+```
  bash$ mkfifo /tmp/serial.in
  bash$ mkfifo /tmp/serial.out
  bash$ cp udkdebugger.conf /etc/
-
-             Return to Open 4 docker terminal console windows
+```
+- Return to Open 4 docker terminal console windows
