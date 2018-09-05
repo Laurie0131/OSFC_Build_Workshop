@@ -151,7 +151,7 @@ Note:
 - OVMF also requires an ASL compiler to be installed on the system. Intel ASL is available from http://www.acpica.org. 
 - More Information available at TianoCore.org
 
----?image=/assets/images/slides2/Slide7.JPG
+---?image=/assets/images/slides/Slide7.JPG
 @title[OVMF BIOS w/ QEMU ]
 <br>
 <p align="right" style="line-height:70%"><span class="white" >OVMF BIOS w/ QEMU</span><br><span style="font-size:0.7em" >Boots to UEFI Shell</span></p>
