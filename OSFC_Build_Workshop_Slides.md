@@ -7,21 +7,21 @@
 - Intel Corporation
 - OSFC - 2018
 
-# Slide 1
+# Slide 2
 ## Workshop Objective
 - Open Virtual Machine Firmware (OVMF) Platform Overview 
 - Build a EDK II Platform using OVMF package and use QEMU  to boot to UEFI Shell
 - Run UEFI Shell Commands  and Scripts
 
 
-# Slide 1
+# Slide 3
 ## What is OVMF?
 - Open Virtual Machine Firmware for UEFI
 
-# Slide 1
+# Slide 4
 ##  Where? Tianocore.org 
 
-# Slide 1
+# Slide 5
 ## Projects 	GitHub Tianocore.org
 - edk2 – Platforms on edk2- “CORE”
 	- BeagleBoardPkg
@@ -33,7 +33,7 @@
 
 - See Readme.md files
 
-# Slide 1
+# Slide 6
 ## Open Virtual Machine Firmware (OVMF) 
 - Uses EDK II to support firmware in the OvmfPkg platform package
 - Supports UEFI:  Helps develop/debug drivers & applications
@@ -42,26 +42,26 @@
 - Tool Chain/OS Support
 - Information  Ovmf wiki, Tianocore.org
 
-# Slide 1
+# Slide 7
 ## OVMF BIOS w/ QEMU Boots to UEFI Shell
 - Boots to UEFI Shell
 
-# Slide 1
+# Slide 8
 ## OVMF with QEMU Boot Options
 - Possibilities to test  OS installers,  UEFI boot loaders and unique, dependent guest OS features.
 
-# Slide 1
+# Slide 9
 ## OVMF with QEMU Test RAM Disk
 - Create a  RAM disk, either raw or from a file
 
-# Slide 1
+# Slide 10
 ## OVMF with QEMU Test Secure Boot
 - Development and testing of Secure Boot-related features in guest operating systems
 - Enable the Build switch SECURE_BOOT_ENABLE
 - Uses OpenSsl Libraries
 
 
-# Slide 1
+# Slide 11
 ## OVMF with QEMU boot to UEFI Shell
 - OVMF will Boot to the Internal UEFI Shell Application by default
 
@@ -69,14 +69,14 @@
 
 
 
-# Slide 1
+# Slide 12
 ## UEFI – PI & EDK II Boot Flow
 
-# Slide 1
+# Slide 13
 ## UEFI Shell Elements
 - The UEFI Shell is an extensive & Standardized  Pre-OS UEFI Application
 
-# Slide 1
+# Slide 14
 ## UEFI Shell Usage
 - Execute pre-boot programs
 - Move files between devices 
@@ -85,11 +85,11 @@
 
 
 # Workshop Start
-# Slide 1
+# Slide 15
 ## BUILD OVMFPKG 
 - Setup OvmfPkg to build and run w/ QEMU* and Ubuntu*
 
-# Slide 1
+# Slide 16
 ## Extract Container
 - Copy “docker“ directory from usb thumb drive to local hard driver
 
@@ -114,7 +114,7 @@
  bash$ . ~/docker/edk2-ubuntu.sh
 ```
 
-# Slide 1
+# Slide 17
 ## Extract Container
 
 - From this point on the terminal window for Ubuntu 16.04 will be available and $HOME/workspace will be the shared directory between the host and the Docker container
@@ -127,7 +127,7 @@
  bash$ docker exec –it edk2 bash
 ```
 
-# Slide 1
+# Slide 18
 ## Pre-requisites Ubuntu 16.04 
 - Instructions from: tianocore wiki Ubuntu_1610 
 
@@ -155,7 +155,7 @@
 
 
 
-# Slide 1
+# Slide 19
 ## Create QEMU Run Script
 - Create a run-ovmf directory under the home directory
 ```
@@ -179,10 +179,10 @@
 - Save and Exit
 
 
-# Slide 1
+# Slide 20
 ## Setup Workshop Material 
 
-# Slide 1
+# Slide 21
 ## Workshop Material 
 
 1. Copy the Workshop_Material from  the thumb drive  to $HOME/workspace
@@ -194,7 +194,7 @@
 	- Presentations
 
 
-# Slide 1
+# Slide 22
 ## BUILD EDK II OVMF  -Getting the Source 
 2. From the Docker terminal prompt, Copy the edk2 directory to the docker ~/workspace
 ```
@@ -204,14 +204,14 @@
 
 
 
-# Slide 1
+# Slide 23
 ## BUILD EDK II OVMF  -Getting BaseTools
 3. From the folder ~/workspace/edk2, Extract the BaseTools.tar.xz to edk2 directory.
 ```
  bash$ tar -xf BaseTools.tar.xz
 ```
 
-# Slide 1
+# Slide 24
 ## BUILD EDK II OVMF 
 - Building the Base Tools
 
@@ -225,10 +225,10 @@
  bash$ . edksetup.sh
 ```
 
-# Slide 1
+# Slide 25
 ## Build Ovmf Platform
 
-# Slide 1
+# Slide 26
 ## BUILD EDK II OVMF 
 -Update Target.txt and Build
 - Open Virtual Machine Firmware (OVMF)- Build
@@ -255,7 +255,7 @@
  bash$ build
 ``` 
 
-# Slide 1
+# Slide 27
 ## BUILD EDK II OVMF 
 -Inside Terminal
 
@@ -263,7 +263,7 @@
 
 
 
-# Slide 1
+# Slide 28
 ## Build EDK II OVMF -Verify Build Succeeded 
 - OVMF.fd should be in the Build directory
 - For GCC5 with X64, it should be located at
@@ -272,7 +272,7 @@
 ```
    
    
-# Slide 1
+# Slide 29
 ## Invoke QEMU
 - Change to run-ovmf directory under the home directory
 ```
@@ -289,13 +289,13 @@
 ```
 
 
-# Slide 1
+# Slide 30
 ## UEFI Shell  with QEMU 
 
-# Slide 1
+# Slide 31
 ## QEMU boot to UEFI Shell
 
-# Slide 1
+# Slide 32
 ## Common Shell Commands for Debugging
 - help 
 - mm
@@ -313,23 +313,30 @@
 
 
 
-# Slide 1
+# Slide 33
 
 ## Shell Help
 ```
 Shell> help –b
 ```
 
-# Slide 1
+# Slide 34
 
 ## Shell “mm”
+```
+Shell> mm -? -b
+```
+
 Help for “mm” command shows options for different types of memory and I/O that can be modified
 	
 
-# Slide 1
+# Slide 35
 ## Shell “mm”
 ```
-Shell> help –b
+ Shell> mm  0x06bbb000 
+
+
+ Shell> mm 0
 ```
 
 - MM in can display / modify  any location 
@@ -338,74 +345,75 @@ Shell> help –b
 
 
 
-# Slide 1
+# Slide 36
 ## Shell “mem”
 ```
-Shell> help –b
+Shell> mem
 ```
 
 - Displays the contents of the system or device memory
 - without arguments, displays the system memory configuration.
 
 
-# Slide 1
+# Slide 37
 ## Shell “memmap”
 ```
-Shell> help –b
+Shell> memmap
 ```
 - Displays the memory map maintained by the UEFI environment
 
 
-# Slide 1
+# Slide 38
 ## Shell “Drivers”
 ```
-Shell> help –b
+Shell> drivers -b
 ```
 
-# Slide 1
+# Slide 39
 ## Shell “Devices”
 ```
-Shell> help –b
+Shell> devices –b
 ```
 - Displays a list of devices that UEFI drivers manage.
 
 
-# Slide 1
+# Slide 40
 ## Shell “Devtree”
 ```
-Shell> help –b
+Shell> devtree –b
 ```
 - Displays s tree of devices currently managed by UEFI drivers
 
-# Slide 1
+# Slide 41
 ## Shell Handle Database - “Dh”
 ```
-Shell> help –b
+Shell> dh –b
 ```
 - Displays the device handles associated with UEFI drivers
 
-# Slide 1
+# Slide 42
 ## Shell “Load”
 ```
-Shell> help –b
+Shell> load -?
 ```
 
-# Slide 1
+# Slide 43
 ## Shell “dmpstore”
 ```
-Shell> help –b
+Shell> dmpstore -all –b
 ```
 - Display the contents of the NVRAM variables
 
-# Slide 1
+# Slide 44
 ## Shell “Stall”
 ```
-Shell> help –b
+Shell> stall 10000000
+
 ```
 - Stalls the operation for a specified number of microseconds
 
 
-# Slide 1
+# Slide 45
 ## UEFI SHELL SCRIPTS
 
 - The UEFI Shell can execute commands from a file, which is  called a batch script file (`.nsh` files).
@@ -416,7 +424,7 @@ Shell> help –b
 - Allow branching and looping in a script.
 - Allow users to control input and output and call other batch programs (known as script nesting).
 
-# Slide 1
+# Slide 46
 ## WRITING UEFI SHELL SCRIPTS
 - At the shell prompt
 ```
@@ -432,7 +440,7 @@ FS0:\> edit HelloScript.nsh
 
 
 
-# Slide 1
+# Slide 47
 ## Hello World Script
 - In the shell, type HelloScript for the following result:
 
@@ -440,7 +448,7 @@ FS0:\> edit HelloScript.nsh
 
 - Close the QEMU
 
-# Slide 1
+# Slide 48
 ## UEFI SHELL NESTED SCRIPTS
 - Copy the Scripts from the ~../SampleCode/ShellScripts to the run-ovmf directory  ~/workspace/run-ovmf/hda-contents
 ```
@@ -448,7 +456,7 @@ FS0:\> edit HelloScript.nsh
 ```
 
 
-# Slide 1
+# Slide 49
 ## UEFI Shell Script Example
 ### Script1.nsh
 ```
@@ -472,7 +480,7 @@ FS0:\> edit HelloScript.nsh
 ```
 
 
-# Slide 1
+# Slide 50
 ## Run UEFI Shell Scripts
 - Run the RunQemu.sh from the terminal 
 ```
@@ -482,13 +490,13 @@ FS0:\> edit HelloScript.nsh
 - At the Shell prompt Type  
 
 ```
-Shell> fs0:
-FS0:\> Script1
+ Shell> fs0:
+ FS0:\> Script1
 
-FS0:\> Edit Script1.nsh
+ FS0:\> Edit Script1.nsh
 ```
 
-# Slide 1
+# Slide 51
 ## Run UEFI Shell Scripts
 - Remove the “#” on the first line
 
@@ -497,11 +505,12 @@ FS0:\> Edit Script1.nsh
 - Enter
 - Press “F3” to exit
 - Type 
+
 ```
-FS0:\> Script1
+ FS0:\> Script1
 ```
 
-# Slide 1
+# Slide 52
 ## Summary
 - OVMF Platform Overview 
 - Build a EDK II Platform using OVMF package and use QEMU  to boot to UEFI Shell
@@ -509,7 +518,7 @@ FS0:\> Script1
 
 
 
-# Slide 1
+# Slide 53
 ## Legal Notice
 
 ```
@@ -525,5 +534,5 @@ Intel, the Intel logo are trademarks of Intel Corporation or its subsidiaries in
 © Intel Corporation.
 ```
 
-# Slide 1
+# Slide 54
 - Logo 
