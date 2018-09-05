@@ -188,11 +188,11 @@
 ## Debug in Pre-Boot – UEFI Shell Application
 
 # WORKSHOP Slides 
-# Slide 41
+# Slide 41 
 ## Debug Workshop
 - Steps to setup the GDB & UDK with QEMU to debug UEFI Firmware
 
-# Slide 42
+# Slide 42 section slide
 ## Setup OVMFPKG 
 - Setup OvmfPkg to build and run with QEMU and Ubuntu
 
@@ -229,7 +229,7 @@
 [edk2-ubuntu] workspace #
 ```
 - Open Multiple terminal windows run the script OpenEdk2Window.sh
-``
+```
  bash$ docker exec –it edk2 bash
 ```
 
@@ -253,15 +253,16 @@
     bash$ mkfifo /tmp/serial.in
     bash$ mkfifo /tmp/serial.in
 ```
+
 3. Create a Linux shell script to run the QEMU from the run-ovmf directory
 
 ```
  bash$ gedit RunQemu.sh
 
-
-
-  qemu-system-i386 -s  -pflash bios.bin -hda fat:rw:hda-contents -net none -debugcon file:debug.log -global isa-debugcon.iobase=0x402 -serial pipe:/tmp/serial 
-
+  qemu-system-i386 -s  -pflash bios.bin -hda fat:rw:hda-contents -net none\
+  -debugcon file:debug.log\
+  -global isa-debugcon.iobase=0x402\
+  -serial pipe:/tmp/serial 
 ```
 
 4. Save and Exit
@@ -305,7 +306,7 @@
 -Update Target.txt and Build
 
 - Edit the file Conf/target.txt
-```bash
+```
  bash$ gedit Conf/target.txt
    #
 
@@ -386,7 +387,7 @@ bash$ . RunQemu.sh
  bash$ cp /etc/udkdebugger.conf ~/workspace
 ```
 
-# Slide 56
+# Slide 56 section slide
 ## Debug a Driver 
 - Build a UEFI Driver and use the Debugger tools to Debug
 
@@ -398,8 +399,10 @@ bash$ . RunQemu.sh
 - Component Name Protocol
 - HII forms / Fonts w/ supporting Protocols
 - My Dummy Protocol – 
-		- Updates NVRAM Variable – Unicode string
- 		- Updates a Memory buffer – Unicode char
+  - Updates NVRAM Variable – Unicode string
+  - Updates a Memory buffer – Unicode char
+
+  
 - MyApp – UEFI application interfaces with My Dummy Protocol
 
 
@@ -528,7 +531,7 @@ Run QEMU
 
 - EXIT QEMU
 
-# Slide 65
+# Slide 65 section slide
 ## Invoke Debugger
 - Invoking Intel® UDK, GDB and QEMU
 
@@ -685,7 +688,7 @@ Run QEMU
 - DO NOT EXIT gdb
 
 
-# Slide 76
+# Slide 76 section slide
 ## Add CPU Breakpoint 
 - Debug the UEFI Driver by adding function call “CpuBreakpoint()” in the code
 
@@ -915,7 +918,7 @@ MyAppUefiMain (
 
 
 
-# Slide 90
+# Slide 90 section slide
 ## Debug a Real Bug 
 - Debug a UEFI Driver with a Real Bug and use the Debugger tools to find the bug
 
