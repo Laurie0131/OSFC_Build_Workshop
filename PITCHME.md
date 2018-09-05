@@ -1,4 +1,4 @@
----?image=assets/images/slides/Side1.JPG
+---?image=/assets/images/slides/Slide1.JPG
 @title[Platform Build Lab]
 <br><br><br><br><br>
 <p style="line-height:80%"> <span class="white"   >Building Open Source Unified Extensible Firmware Interface (UEFI) 
@@ -93,7 +93,7 @@ Note:
 
 Note:
 
----?image=/assets/images/slides2/Slide5.JPG
+---?image=/assets/images/slides/Slide5.JPG
 <!-- .slide: data-transition="none" -->		  
 @title[Projects github tianocore]
 <br>
@@ -120,7 +120,7 @@ See Readme.md files
 </div>
 Note:
 
----?image=/assets/images/slides2/Slide6.JPG
+---?image=/assets/images/slides/Slide6.JPG
 @title[Open Virtual Machine Firmware  ]
 <p align="right"><span class="white" >&nbsp;&nbsp;&nbsp;Open Virtual Machine Firmware (OVMF) </span></p>
 <br>
