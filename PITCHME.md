@@ -293,28 +293,27 @@ Note:
 @title[Create QEMU Run Script]
 <p align="right"><span class="white" >Create QEMU Run Script</span></p>
 <p style="line-height:80%"><span style="font-size:0.7em" >1. Create a run-ovmf directory under the home directory</span></p>
+
 ```
-bash$ cd ~/workspace
-bash$ mkdir run-ovmf
-bash$ cd run-ovmf
+ bash$ cd ~/workspace
+ bash$ mkdir run-ovmf
+ bash$ cd run-ovmf
 
 ```
 
-<p style="line-height:80%"><span style="font-size:0.7em" >2. Create a directory to use as a hard disk image
- </span></p>
+<p style="line-height:80%"><span style="font-size:0.7em" >2. Create a directory to use as a hard disk image </span></p>
+
 ```
-bash$ mkdir hda-contents
+ bash$ mkdir hda-contents
 
 ```
 
 <p style="line-height:80%"><span style="font-size:0.7em" >3. Create a Linux shell script to run the QEMU from the run-ovmf directory
 </span></p>
 ```
-bash$ gedit RunQemu.sh
+ bash$ gedit RunQemu.sh
 
-```
-```
-qemu-system-x86_64 -pflash bios.bin -hda fat:rw:hda-contents -net none     -debugcon file:debug.log -global isa-debugcon.iobase=0x402 
+ qemu-system-x86_64 -pflash bios.bin -hda fat:rw:hda-contents -net none     -debugcon file:debug.log -global isa-debugcon.iobase=0x402 
 
 ```
 
