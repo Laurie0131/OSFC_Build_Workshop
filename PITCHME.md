@@ -308,8 +308,8 @@ Note:
 
 ```
 
-<p style="line-height:80%"><span style="font-size:0.7em" >3. Create a Linux shell script to run the QEMU from the run-ovmf directory
-</span></p>
+<p style="line-height:80%"><span style="font-size:0.7em" >3. Create a Linux shell script to run the QEMU from the run-ovmf directory</span></p>
+
 ```
  bash$ gedit RunQemu.sh
 
