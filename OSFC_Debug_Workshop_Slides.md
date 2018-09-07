@@ -198,11 +198,17 @@
 
 
 # Slide 43
-## Extract Container
+## Extract Container (1)
 - Copy “docker“ directory from usb thumb drive to local hard driver
-- Load the edk2-Ubuntu.dockerimage
+- Change permissions for Docker 
 ```
- bash$ docker load –i edk2-Ubuntu.dockerimage
+sudo chmod a+rwx /var/run/docker.sock
+sudo chmod a+rwx /var/run/docker.pid
+```
+
+- Load the edk2-Ubuntu.docker
+```
+ bash$ docker load –i edk2-Ubuntu.docker
 ```
 
 - For Open Suse – also set up share
@@ -221,7 +227,7 @@
 ```
 
 # Slide 44
-## Extract Container
+## Extract Container (2)
 
 - From this point on the terminal window for Ubuntu 16.04 will be available and $HOME/workspace will be the shared directory between the host and the Docker container
 - window will look like: 
@@ -271,7 +277,8 @@
 ## BUILD EDK II OVMF  -Getting the Source 
 - From the Docker terminal window, Copy the edk2 directory to the docker ~/workspace
 ```
-    bash$ cp -R Workshop_Material/edk2 .
+   bash$ cd ~/workspace   
+   bash$ cp -R Workshop_Material/edk2 .
 ```
 - 	From the FW folder, copy and paste folder “~/../edk2” to ~/workspace
 
@@ -282,6 +289,7 @@
 ## BUILD EDK II OVMF  -Getting BaseTools
 - From the folder ~/workspace/edk2, Extract the BaseTools.tar.xz to edk2 directory.
 ```
+ bash$ cd ~/workspace/edk2
  bash$ tar -xf BaseTools.tar.xz
 ```
 
@@ -322,7 +330,11 @@
 ```
  bash$ build -D SOURCE_DEBUG_ENABLE
 ```
+- or  (if target.txt not updated)
 
+```
+bash$ build –p OvmfPkg/OvmfPkgX64.dsc –a X64 –t GCC5 -D SOURCE_DEBUG_ENABLE
+```
 
 # Slide 51
 ## BUILD EDK II OVMF 
@@ -424,18 +436,18 @@ bash$ . RunQemu.sh
 
 # Slide 59
 ## Copy Simple Driver to Your Workspace
-- Open Directory Workshop-Material/SampleCode/UEFI-Driver
+- Open Directory Workshop-Material/SampleCode/UEFI-Drivers
 ```
- bash$ cd ~/workshop/Workshop-Material/SampleCode/UEFI-Driver
+ bash$ cd ~/workshop/Workshop-Material/SampleCode/UEFI-Drivers
 ```
 
 - Copy the sample driver to the edk2 directories
 ```
- bash$ cp –R MyUefiDriver  ~/workspace/edk2/
- bash$ cp –R Protocol  ~/workspace/OvmfPkg/Include/
+ bash$ cp –R MyUefiDriver/  ~/workspace/edk2/
+ bash$ cp –R Protocol/  ~/workspace/OvmfPkg/Include/
  bash$ cp OvmfPkg.dec  ~/workspace/edk2/OvmfPkg/
  bash$ cp OvmfPkgX64.dsc  ~/workspace/edk2/OvmfPkg/
- bash$ cp –R bin ~/workspace/run-ovmf/hda-contents
+ bash$ cp –R Bin/ ~/workspace/run-ovmf/hda-contents/
 ```
 
 
@@ -505,7 +517,7 @@ Run QEMU
 
 # Slide 63
 ## Debugging with DEBUGLIB
-- Check debug.log
+- Check debug.log in ~/workspace/run-ovmf dir
 ```
  bash$ cat debug.log
 ```
@@ -539,7 +551,7 @@ Run QEMU
 ## Open 4 Terminal Console Windows
 - Open successive terminal windows with:
 ```
- bash$ docker exec –it edk2 
+ bash$ docker exec –it edk2 bash
 ```
 1. Run Intel® UDK Debugger 
 2. Run Gdb
@@ -792,7 +804,7 @@ MyAppUefiMain (
   #4
  bash$ cat debug.log
 ``` 
-
+### SKIP to Slide 83 if gdb and UDK are already running
 
 # Slide 81
 ## 2nd  Terminal - gdb
@@ -823,7 +835,11 @@ MyAppUefiMain (
 # Slide 83
 ## Debugging with GDB and UDK
 - Continue “c” will boot up to UEFI Shell
-
+- type "c" in the gdb window
+```
+ (udb) c
+```
+- booting should continue in the QEMU Window to boot to UEFI Shell
 
 # Slide 84
 ## Debugging with GDB and UDK
@@ -841,6 +857,8 @@ MyAppUefiMain (
  (udb) Layout src
  (udb) next
 ```
+### if connection fails
+- If the connection between gdb and udk fails – restart 4 new docker sessions :  goto Slide 102 
 
 # Slide 85
 ## Debugging with GDB and UDK
@@ -1114,7 +1132,7 @@ Intel, the Intel logo are trademarks of Intel Corporation or its subsidiaries in
 ```
 - Re-load Docker image
 ```
- bash$ docker load –i edk2-ubuntu.dockerimage
+ bash$ docker load –i edk2-ubuntu.docker
  bash$ cd ~/workspace
  bash$ . ~/docker/edk-2-ubuntu.sh
 ```
@@ -1124,4 +1142,4 @@ Intel, the Intel logo are trademarks of Intel Corporation or its subsidiaries in
  bash$ mkfifo /tmp/serial.out
  bash$ cp udkdebugger.conf /etc/
 ```
-- Return to Open 4 docker terminal console windows
+- Return to Open 4 docker terminal console windows  **Slide 66**

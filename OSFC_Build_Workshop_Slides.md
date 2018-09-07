@@ -90,13 +90,17 @@
 - Setup OvmfPkg to build and run w/ QEMU* and Ubuntu*
 
 # Slide 16
-## Extract Container
+## Extract Container (1)
 - Copy “docker“ directory from usb thumb drive to local hard driver
-
-
-- Load the edk2-Ubuntu.dockerimage
+- Change permissions for Docker 
 ```
- bash$ docker load –i edk2-Ubuntu.dockerimage
+sudo chmod a+rwx /var/run/docker.sock
+sudo chmod a+rwx /var/run/docker.pid
+```
+
+- Load the edk2-Ubuntu.docker
+```
+ bash$ docker load –i edk2-Ubuntu.docker
 ```
 
 - For OpenSuse – also set up share
@@ -115,7 +119,7 @@
 ```
 
 # Slide 17
-## Extract Container
+## Extract Container (2)
 
 - From this point on the terminal window for Ubuntu 16.04 will be available and $HOME/workspace will be the shared directory between the host and the Docker container
 - window will look like: 
@@ -128,16 +132,12 @@
 ```
 
 # Slide 18
-## Pre-requisites Ubuntu 16.04 
+## Pre-requisites Ubuntu 16.04 NOTE SKIP TO NEXT SLIDE - Docker container already DONE
 - Instructions from: tianocore wiki Ubuntu_1610 
 
 - Example Ubuntu 16.04
 
 - The following need to be accessible for building Edk2, From the terminal prompt (Cnt-Alt-T):
-```
- bash$ sudo apt-get install build-essential uuid-dev iasl git gcc-5 nasm  
- bash$ sudo apt-get install python  (NOT 3)
-```
 - build-essential - Informational list of build-essential packages
 - uuid-dev - Universally Unique ID library (headers and static libraries)
 - iasl - Intel ASL compiler/decompiler (also provided by acpica-tools)
@@ -145,9 +145,6 @@
 - gcc-5 - GNU C compiler (v5.4.0 as of Ubuntu 16.04 LTS)
 - nasm - General-purpose x86 assembler 
 
-```
- bash$ sudo apt-get install qemu
-```
 
 - Qemu – Emulation with Intel architecture with UEFI Shell 
 
@@ -198,6 +195,7 @@
 ## BUILD EDK II OVMF  -Getting the Source 
 2. From the Docker terminal prompt, Copy the edk2 directory to the docker ~/workspace
 ```
+    bash$ cd ~/workspace
     bash$ cp -R Workshop_Material/edk2 .
 ```
 - 	From the FW folder, copy and paste folder “~/../edk2” to ~/workspace
@@ -208,6 +206,7 @@
 ## BUILD EDK II OVMF  -Getting BaseTools
 3. From the folder ~/workspace/edk2, Extract the BaseTools.tar.xz to edk2 directory.
 ```
+ bash$ cd edk2
  bash$ tar -xf BaseTools.tar.xz
 ```
 
@@ -248,6 +247,11 @@
 ``` 
 - Save and Exit
 
+- or  (if target.txt not updated)
+
+```
+bash$ build –p OvmfPkg/OvmfPkgX64.dsc –a X64 –t GCC5 
+```
 
 - Build  from the edk2 directory
 
